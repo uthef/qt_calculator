@@ -1,2 +1,2 @@
 # qt_calculator
-GUI for [streval library](https://google.com).
+GUI for [streval library](https://github.com/uthef/streval).
