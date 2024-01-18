@@ -1,0 +1,1184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CalculatorForm</class>
+ <widget class="QMainWindow" name="CalculatorForm">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>632</width>
+    <height>605</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="sizeIncrement">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::TabFocus</enum>
+  </property>
+  <property name="windowTitle">
+   <string>Simple calculator</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">*[panel] {
+	background-color: rgba(0, 0, 0, 0.15);
+	border-radius: 16px;
+	padding: 16px;
+}</string>
+  </property>
+  <property name="animated">
+   <bool>true</bool>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Minimum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="spacing">
+     <number>10</number>
+    </property>
+    <property name="sizeConstraint">
+     <enum>QLayout::SetMinimumSize</enum>
+    </property>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_5" stretch="0,0,0">
+      <property name="spacing">
+       <number>10</number>
+      </property>
+      <property name="sizeConstraint">
+       <enum>QLayout::SetDefaultConstraint</enum>
+      </property>
+      <item>
+       <widget class="QTextEdit" name="exp_field">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Ignored">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>120</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>280</height>
+         </size>
+        </property>
+        <property name="baseSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>18</pointsize>
+         </font>
+        </property>
+        <property name="focusPolicy">
+         <enum>Qt::ClickFocus</enum>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="horizontalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOff</enum>
+        </property>
+        <property name="sizeAdjustPolicy">
+         <enum>QAbstractScrollArea::AdjustIgnored</enum>
+        </property>
+        <property name="tabChangesFocus">
+         <bool>true</bool>
+        </property>
+        <property name="lineWrapMode">
+         <enum>QTextEdit::WidgetWidth</enum>
+        </property>
+        <property name="lineWrapColumnOrWidth">
+         <number>0</number>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="overwriteMode">
+         <bool>false</bool>
+        </property>
+        <property name="cursorWidth">
+         <number>1</number>
+        </property>
+        <property name="placeholderText">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="result_label">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Ignored" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>50</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">padding: 8px</string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QGridLayout" name="gridLayout">
+        <property name="sizeConstraint">
+         <enum>QLayout::SetMinimumSize</enum>
+        </property>
+        <item row="5" column="4">
+         <widget class="QPushButton" name="eq_bt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>Calculate (=)</string>
+          </property>
+          <property name="text">
+           <string>=</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QPushButton" name="e_bt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>E</string>
+          </property>
+          <property name="text">
+           <string>ℯ</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QPushButton" name="pow2_bt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="palette">
+           <palette>
+            <active/>
+            <inactive/>
+            <disabled/>
+           </palette>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>x to the power of 2 (x ^ 2)</string>
+          </property>
+          <property name="text">
+           <string>𝑥²</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="2">
+         <widget class="QPushButton" name="num8_bt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="sizeIncrement">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>8</string>
+          </property>
+          <property name="text">
+           <string>8</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="4">
+         <widget class="QPushButton" name="op_mult_bt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>Multiply (*)</string>
+          </property>
+          <property name="text">
+           <string>×</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="4">
+         <widget class="QPushButton" name="op_add_bt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>Add (+)</string>
+          </property>
+          <property name="text">
+           <string>+</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QPushButton" name="backspace_bt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>Erase last symbol (Backspace)</string>
+          </property>
+          <property name="text">
+           <string>←</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="2">
+         <widget class="QPushButton" name="num5_bt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="sizeIncrement">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>5</string>
+          </property>
+          <property name="text">
+           <string>5</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QPushButton" name="powx_bt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>x to the power of y (x ^ y)</string>
+          </property>
+          <property name="text">
+           <string>𝑥ʸ</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="4">
+         <widget class="QPushButton" name="op_sub_bt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
+          <property name="toolTip">
+           <string>Subtract (-)</string>
+          </property>
+          <property name="text">
+           <string>˗</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="2">
+         <widget class="QPushButton" name="num2_bt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="sizeIncrement">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>2</string>
+          </property>
+          <property name="text">
+           <string>2</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QPushButton" name="num1_bt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="sizeIncrement">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>1</string>
+          </property>
+          <property name="text">
+           <string>1</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="2">
+         <widget class="QPushButton" name="clear_bt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>Clear (Del)</string>
+          </property>
+          <property name="text">
+           <string>C</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="3">
+         <widget class="QPushButton" name="num3_bt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="sizeIncrement">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>3</string>
+          </property>
+          <property name="text">
+           <string>3</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QPushButton" name="num4_bt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="sizeIncrement">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>4</string>
+          </property>
+          <property name="text">
+           <string>4</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="4">
+         <widget class="QPushButton" name="op_div_bt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>Divide (/)</string>
+          </property>
+          <property name="text">
+           <string>÷</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="2">
+         <widget class="QPushButton" name="num0_bt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>0</string>
+          </property>
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="3">
+         <widget class="QPushButton" name="period_bt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>Period (.)</string>
+          </property>
+          <property name="text">
+           <string>.</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="3">
+         <widget class="QPushButton" name="num9_bt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="sizeIncrement">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>9</string>
+          </property>
+          <property name="text">
+           <string>9</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="3">
+         <widget class="QPushButton" name="num6_bt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="sizeIncrement">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>6</string>
+          </property>
+          <property name="text">
+           <string>6</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QPushButton" name="num7_bt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="sizeIncrement">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>7</string>
+          </property>
+          <property name="text">
+           <string>7</string>
+          </property>
+          <property name="flat">
+           <bool>false</bool>
+          </property>
+          <property name="bg" stdset="0">
+           <string notr="true">dark</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="3">
+         <widget class="QPushButton" name="op_mod_bt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>A % B = B percent of A (%)</string>
+          </property>
+          <property name="text">
+           <string>%</string>
+          </property>
+          <property name="raw" stdset="0">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QPushButton" name="bracket_bt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>Parenthesis</string>
+          </property>
+          <property name="text">
+           <string>()</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QPushButton" name="sqrt_bt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>sqrt(x)</string>
+          </property>
+          <property name="text">
+           <string>√</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QPushButton" name="pi_bt">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Ignored" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>64</width>
+            <height>64</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>18</pointsize>
+           </font>
+          </property>
+          <property name="toolTip">
+           <string>PI</string>
+          </property>
+          <property name="text">
+           <string>π</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QListWidget" name="history">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>250</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>800</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="sizeIncrement">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::TabFocus</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QListWidget::item{
+padding-top: 8px;
+padding-bottom:8px;
+}</string>
+      </property>
+      <property name="editTriggers">
+       <set>QAbstractItemView::NoEditTriggers</set>
+      </property>
+      <property name="dragEnabled">
+       <bool>false</bool>
+      </property>
+      <property name="dragDropMode">
+       <enum>QAbstractItemView::NoDragDrop</enum>
+      </property>
+      <property name="defaultDropAction">
+       <enum>Qt::IgnoreAction</enum>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SingleSelection</enum>
+      </property>
+      <property name="movement">
+       <enum>QListView::Static</enum>
+      </property>
+      <property name="flow">
+       <enum>QListView::TopToBottom</enum>
+      </property>
+      <property name="isWrapping" stdset="0">
+       <bool>false</bool>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+      <property name="selectionRectVisible">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="statusTip">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>632</width>
+     <height>27</height>
+    </rect>
+   </property>
+   <property name="defaultUp">
+    <bool>false</bool>
+   </property>
+   <property name="nativeMenuBar">
+    <bool>true</bool>
+   </property>
+   <widget class="QMenu" name="menuOptions">
+    <property name="title">
+     <string>Options</string>
+    </property>
+    <addaction name="actionUpdateNumberFormat"/>
+    <addaction name="separator"/>
+    <addaction name="actionClearHistory"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuOptions"/>
+   <addaction name="menuAbout"/>
+  </widget>
+  <action name="actionUpdateNumberFormat">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Exact number presentation</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Home</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
+  <action name="actionClearHistory">
+   <property name="text">
+    <string>Clear history</string>
+   </property>
+  </action>
+ </widget>
+ <tabstops>
+  <tabstop>pow2_bt</tabstop>
+  <tabstop>backspace_bt</tabstop>
+  <tabstop>clear_bt</tabstop>
+  <tabstop>op_mod_bt</tabstop>
+  <tabstop>op_div_bt</tabstop>
+  <tabstop>powx_bt</tabstop>
+  <tabstop>num7_bt</tabstop>
+  <tabstop>num8_bt</tabstop>
+  <tabstop>num9_bt</tabstop>
+  <tabstop>op_mult_bt</tabstop>
+  <tabstop>sqrt_bt</tabstop>
+  <tabstop>num4_bt</tabstop>
+  <tabstop>num5_bt</tabstop>
+  <tabstop>num6_bt</tabstop>
+  <tabstop>op_sub_bt</tabstop>
+  <tabstop>pi_bt</tabstop>
+  <tabstop>num1_bt</tabstop>
+  <tabstop>num2_bt</tabstop>
+  <tabstop>num3_bt</tabstop>
+  <tabstop>op_add_bt</tabstop>
+  <tabstop>e_bt</tabstop>
+  <tabstop>bracket_bt</tabstop>
+  <tabstop>num0_bt</tabstop>
+  <tabstop>period_bt</tabstop>
+  <tabstop>eq_bt</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>actionUpdateNumberFormat</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>CalculatorForm</receiver>
+   <slot>updateNumberFormat(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>181</x>
+     <y>298</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionAbout</sender>
+   <signal>triggered()</signal>
+   <receiver>CalculatorForm</receiver>
+   <slot>showAboutModal()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>181</x>
+     <y>298</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionClearHistory</sender>
+   <signal>triggered()</signal>
+   <receiver>CalculatorForm</receiver>
+   <slot>clearHistory()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>315</x>
+     <y>302</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>history</sender>
+   <signal>itemDoubleClicked(QListWidgetItem*)</signal>
+   <receiver>CalculatorForm</receiver>
+   <slot>historyItemSelected(QListWidgetItem*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>494</x>
+     <y>304</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>315</x>
+     <y>302</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>history</sender>
+   <signal>itemActivated(QListWidgetItem*)</signal>
+   <receiver>CalculatorForm</receiver>
+   <slot>historyItemSelected(QListWidgetItem*)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>494</x>
+     <y>304</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>315</x>
+     <y>302</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>updateNumberFormat(bool)</slot>
+  <slot>showAboutModal()</slot>
+  <slot>clearHistory()</slot>
+  <slot>historyItemSelected(QListWidgetItem*)</slot>
+ </slots>
+</ui>
