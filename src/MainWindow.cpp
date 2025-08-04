@@ -6,7 +6,11 @@
 #include "AboutPopup.h"
 #include "MainWindowUtils.h"
 
-MainWindow::MainWindow(QWidget* parent, Configuration& storage) : QMainWindow(parent), form(), builder(form.exp_field), scope(true), config(storage) {
+extern "C" {
+    #include "expeval/expeval.h"
+}
+
+MainWindow::MainWindow(QWidget* parent, Configuration& storage) : QMainWindow(parent), form(), builder(form.exp_field), config(storage) {
     this->form.setupUi(this);
 
     form.exp_field->setWordWrapMode(QTextOption::WrapAtWordBoundaryOrAnywhere);
@@ -14,7 +18,6 @@ MainWindow::MainWindow(QWidget* parent, Configuration& storage) : QMainWindow(pa
 
     builder = ExpressionBuilder(form.exp_field);
 
-    initializeScope(scope);
     loadConfiguration();
     loadHistory();
     connectButtons();
@@ -56,11 +59,17 @@ void MainWindow::connectButtons() {
 }
 
 void MainWindow::calculate() {
-    auto expression = form.exp_field->toPlainText().toStdU32String();
-    auto result = uthef::streval(expression.c_str(), scope);
+    auto expression = form.exp_field->toPlainText();
 
-    if (result.number().has_value()) {
-        lastDouble = result.number().value();
+    expeval_context context;
+    context.constants = scope.constants.data();
+    context.functions = scope.functions.data();
+    context.operators = scope.operators.data();
+
+    expeval_result result = expeval(expression.toStdString().c_str(), &context);
+
+    if (result.code == EXPEVAL_OK) {
+        lastDouble = result.value;
         lastResult = QString::number(lastDouble, abs(lastDouble) > 1e20 ? 'g' : currentFormat, 7);
         form.result_label->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
         form.result_label->setForegroundRole(QPalette::Text);
@@ -82,12 +91,11 @@ void MainWindow::calculate() {
 
     lastResult = QString();
 
-    const char* msg;
+    const char* msg = 0;
 
-    switch(result.error().value()) {
-        case LEFT_MISSING:
-        case RIGHT_MISSING:
-        case UNCLOSED_PARENTHESIS:
+    switch(result.code) {
+        case EXPEVAL_HANGING_OPERATOR:
+        case EXPEVAL_BRACKET_NOT_CLOSED:
             msg = "Unfinished expression";
             break;
         default:

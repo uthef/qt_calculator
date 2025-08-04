@@ -5,9 +5,9 @@
 #include <QKeyEvent>
 #include "ExpressionBuilder.h"
 #include <QPushButton>
-#include <streval.h>
 #include "../ui/ui_calculator_form.h"
 #include "Configuration.h"
+#include "ExpEvalScope.h"
 
 class MainWindow : public QMainWindow {
 Q_OBJECT
@@ -22,8 +22,8 @@ private:
     Ui_CalculatorForm form;
     Configuration config;
     QString lastResult = "0";
+    ExpEvalScope scope;
     double lastDouble = 0;
-    uthef::scope scope;
     ExpressionBuilder builder;
     char currentFormat = 'g';
 

@@ -6,9 +6,9 @@
 #include "Segment.h"
 
 static int MAX_SEGMENTS = 150;
-static const QString SUB_SIGN = "˗";
-static const QString DIV_SIGN = "÷";
-static const QString MULT_SIGN = "×";
+static const char* SUB_SIGN = "˗";
+static const char* DIV_SIGN = "÷";
+static const char* MULT_SIGN = "×";
 
 class ExpressionBuilder {
 private:

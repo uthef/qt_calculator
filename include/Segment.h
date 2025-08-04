@@ -12,51 +12,18 @@ public:
     bool flag1 = false;
     bool flag2 = false;
 
-    explicit Segment(SegmentType type) : _type(type) {
+    explicit Segment(SegmentType type);
+    Segment(SegmentType type, QChar qchar);
+    Segment(SegmentType type, QString& string);
 
-    }
-
-    Segment(SegmentType type, QChar qchar) : _type(type) {
-        str.append(qchar);
-    }
-
-    Segment(SegmentType type, QString& string) : _type(type) {
-        str = QString(string);
-    }
-
-    void pop() {
-        if (str.isEmpty()) return;
-
-        str.erase(str.end() - 1);
-    }
-
-    void append(QString part) {
-        str.append(part);
-    }
-
-    qsizetype length() {
-        return str.length();
-    }
-
-    bool isEmpty() {
-        return str.isEmpty();
-    }
-
-    QChar back() {
-        return str.back();
-    }
-
-    QString value() {
-        return str;
-    }
-
-    void drop() {
-        str = "";
-    }
-
-    SegmentType type() {
-        return _type;
-    }
+    void pop();
+    void append(QString part);
+    qsizetype length();
+    bool isEmpty();
+    QChar back();
+    QString value();
+    void drop();
+    SegmentType type();
 };
 
 #endif //QT_CALCULATOR_SEGMENT_H

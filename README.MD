@@ -1,4 +1,4 @@
 # qt_calculator
-GUI for [streval library](https://github.com/uthef/streval).
+GUI for [expeval library](https://github.com/uthef/expeval).
 
 ![d](qt_calculator.png)
