@@ -5,10 +5,7 @@
 #include <QStringListModel>
 #include "AboutPopup.h"
 #include "Formatting.h"
-
-extern "C" {
-    #include "expeval/expeval.h"
-}
+#include "ExpEvalScope.h"
 
 MainWindow::MainWindow(QWidget* parent, Configuration& storage) : QMainWindow(parent), form(), builder(form.exp_field), config(storage) {
     this->form.setupUi(this);
@@ -61,12 +58,7 @@ void MainWindow::connectButtons() {
 void MainWindow::calculate() {
     auto expression = form.exp_field->toPlainText();
 
-    expeval_context context;
-    context.constants = scope.constants.data();
-    context.functions = scope.functions.data();
-    context.operators = scope.operators.data();
-
-    expeval_result result = expeval(expression.toStdString().c_str(), &context);
+    expeval_result result = scope.evaluate(expression.toStdString().c_str());
 
     if (result.code == EXPEVAL_OK) {
         lastDouble = result.value;

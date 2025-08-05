@@ -2,7 +2,6 @@
 #include <ExpressionBuilder.h>
 
 extern "C" {
-    #include "expeval/expeval.h"
     #include "expeval/math_operations.h"
 }
 
@@ -27,4 +26,14 @@ ExpEvalScope::ExpEvalScope()
         { "%", EXPEVAL_MAX_PRIORITY - 1, [](double a, double b) { return a / 100 * b; } },
         EXPEVAL_OPERATOR_TERMINATOR
     };
+}
+
+expeval_result ExpEvalScope::evaluate(const char* expr) {
+    expeval_context context;
+
+    context.constants = constants.data();
+    context.functions = functions.data();
+    context.operators = operators.data();
+
+    return expeval(expr, &context);
 }

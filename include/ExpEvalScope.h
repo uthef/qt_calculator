@@ -6,6 +6,10 @@
 #include "expeval/function.h"
 #include "expeval/operator.h"
 
+extern "C" {
+    #include "expeval/expeval.h"
+}
+
 class ExpEvalScope {
 public:
     std::vector<expeval_constant> constants;
@@ -13,6 +17,7 @@ public:
     std::vector<expeval_operator> operators;
 
     ExpEvalScope();
+    expeval_result evaluate(const char* expr);
 };
 
 #endif
