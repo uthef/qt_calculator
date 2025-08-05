@@ -1,4 +1,4 @@
-#include "MainWindowUtils.h"
+#include "Formatting.h"
 #include <ExpressionBuilder.h>
 
 extern "C" {

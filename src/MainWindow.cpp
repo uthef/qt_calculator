@@ -4,7 +4,7 @@
 #include <QWidgetList>
 #include <QStringListModel>
 #include "AboutPopup.h"
-#include "MainWindowUtils.h"
+#include "Formatting.h"
 
 extern "C" {
     #include "expeval/expeval.h"

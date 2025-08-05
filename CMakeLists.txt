@@ -27,16 +27,16 @@ add_executable(qt_calculator
         include/Segment.h
         include/SegmentType.h
         include/MainWindow.h
+        include/Formatting.h
         include/ExpressionBuilder.h
         src/main.cpp
         src/MainWindow.cpp
-        src/MainWindowUtils.cpp
+        src/Formatting.cpp
         src/Segment.cpp
         src/ExpEvalScope.cpp
         src/ExpressionBuilder.cpp
         src/AboutPopup.cpp
         src/Configuration.cpp
-        include/MainWindowUtils.h
 )
 
 target_link_libraries(qt_calculator
