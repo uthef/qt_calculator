@@ -101,6 +101,11 @@ void MainWindow::calculate() {
         default:
             msg = "Invalid expression";
             break;
+        case EXPEVAL_INTERNAL_ERROR:
+        case EXPEVAL_UNKNOWN:
+        case EXPEVAL_MEMORY_ALLOCATION_IMPOSSIBLE:
+            msg = "Program error";
+            break;
     }
 
     form.result_label->setText(msg);
